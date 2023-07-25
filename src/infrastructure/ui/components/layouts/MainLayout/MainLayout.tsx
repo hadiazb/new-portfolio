@@ -25,7 +25,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <ThemeProviderMUI theme={themeMUI}>
-                    <GlobalStyle reset />
+                    <GlobalStyle reset theme={theme} />
                     <StyledMainLayout>
                         <DefaultCtr>{children}</DefaultCtr>
                     </StyledMainLayout>
