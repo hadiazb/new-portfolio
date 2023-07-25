@@ -1,6 +1,4 @@
-import tw, { styled } from 'twin.macro'
+import { styled } from 'twin.macro'
 import { Dialog } from '@mui/material'
 
-export const StyledDialog = styled(Dialog)`
-    ${tw``}
-`
+export const StyledDialog = styled(Dialog)``
