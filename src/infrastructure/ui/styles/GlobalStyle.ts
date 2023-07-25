@@ -15,7 +15,7 @@ export type CustomStylesProps<T = DefaultTheme> = GlobalStyleProps & {
 
 export const GlobalStyle = createGlobalStyle<CustomStylesProps>`
     * {
-      ${() => tw`font-montserrat`}
+      ${tw`font-montserrat`}
     }
 
     /* load fonts */
