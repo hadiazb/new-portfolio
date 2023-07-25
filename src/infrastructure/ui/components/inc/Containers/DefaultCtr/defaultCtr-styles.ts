@@ -5,6 +5,4 @@ export const StyledDefaultCtr = styled.div`
     ${tw`sm:px-2 sm:mx-auto`}
     ${tw`sm:px-3`}
     ${tw`md:px-5`}
-
-    ${tw`bg-primary`}
 `
