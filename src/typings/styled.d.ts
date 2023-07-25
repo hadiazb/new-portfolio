@@ -1,7 +1,7 @@
+/* eslint-disable no-restricted-imports */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import original module declarations
 import 'styled-components/macro'
-
 // and extend them!
 declare module 'styled-components' {
     declare type HashOrString = Record<string | number | symbol, string> | string

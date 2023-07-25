@@ -1,6 +1,7 @@
 import tw, { styled } from 'twin.macro'
 import { Popover } from '@mui/material'
 
-export const StyledPopover = styled(Popover)`
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const StyledPopover = styled<any>(Popover)`
     ${tw``}
 `
