@@ -5,7 +5,8 @@ import { StyledShadowMixed } from '@/infrastructure/ui/styles'
 
 export const StyledModal = styled(Modal)`
     .MuiBackdrop-root {
-        ${tw`bg-blend-darken !opacity-50`}
+        opacity: 0.5 !important;
+        background-color: darkgray;
     }
 `
 
