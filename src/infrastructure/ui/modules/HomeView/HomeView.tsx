@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react'
 
-// components
-import { Typography, Box } from '../../components'
+// base components
+import { Box, Typography } from '../../components'
 
 export interface HomeViewProps {
     title: string

@@ -10,11 +10,13 @@ export type GlobalStyleProps = {
 }
 
 export type CustomStylesProps<T = DefaultTheme> = GlobalStyleProps & {
-    theme: T
+    theme?: T
 }
 
 export const GlobalStyle = createGlobalStyle<CustomStylesProps>`
-
+    * {
+      ${tw`font-montserrat`}
+    }
 
     /* load fonts */
     ${getMontserratFont()}
