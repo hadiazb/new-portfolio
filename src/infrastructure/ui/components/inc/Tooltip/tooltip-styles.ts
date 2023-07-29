@@ -1,9 +1,7 @@
-import tw, { TwStyle, styled } from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 import { Tooltip } from '@mui/material'
 
-
-
-
-export const StyledTooltip = styled(Tooltip)<TwStyle>`
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const StyledTooltip = styled<any>(Tooltip)`
     ${tw`text-2xl`}
 `
