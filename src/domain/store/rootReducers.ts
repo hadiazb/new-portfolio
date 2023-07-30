@@ -1,7 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit'
+import { persistReducer } from 'redux-persist'
 
-import { adminSlice } from './admin'
+import { adminPersistConfig, adminReducers } from './adminUseCase'
+import { authPersistConfig, authReducers } from './authUseCase'
+import { uiPersistConfig, uiReducers } from './uiUseCase'
 
 export const rootReducers = combineReducers({
-    admin: adminSlice.reducer,
+    adminModule: persistReducer(adminPersistConfig, adminReducers),
+    authModule: persistReducer(authPersistConfig, authReducers),
+    uiModule: persistReducer(uiPersistConfig, uiReducers),
 })

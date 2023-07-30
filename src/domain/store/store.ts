@@ -5,7 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import { rootReducers } from './rootReducers'
 
 // persist config
-import { persistConfig } from './persistConfig'
+import { persistConfig } from './rootPersistConfig'
 
 const persistedReducer = persistReducer(persistConfig, rootReducers)
 
