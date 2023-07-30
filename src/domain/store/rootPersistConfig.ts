@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { PersistConfig } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 // interfaces
 import { CreateNoopStorage } from '../models'
+import { rootReducers } from './rootReducers'
 
 export const createNoopStorage = (): CreateNoopStorage => ({
     getItem(_key: string) {
@@ -24,4 +26,5 @@ export const persistConfig = {
     keyPrefix: 'portfolio-',
     storage,
     blacklist: [''],
+    version: 1.0,
 }

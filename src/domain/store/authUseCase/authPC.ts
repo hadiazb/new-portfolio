@@ -5,4 +5,5 @@ export const authPersistConfig = {
     keyPrefix: 'portfolio-',
     storage,
     blacklist: [''],
+    version: 1.0,
 }
