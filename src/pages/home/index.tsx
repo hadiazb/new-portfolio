@@ -1,10 +1,10 @@
 import { ReactElement } from 'react'
 
 import { MainLayout } from '@/infrastructure/ui/components'
-import { SplashView } from '@/infrastructure/ui/modules'
+import { HomeView } from '@/infrastructure/ui/modules'
 
 const HomePage = (): ReactElement => {
-    return <SplashView />
+    return <HomeView title="Site is being built" />
 }
 
 export default HomePage
