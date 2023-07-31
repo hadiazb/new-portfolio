@@ -30,7 +30,8 @@
 		"redux-persist": "^6.0.0",
 		"reselect": "^4.1.8",
 		"twin.macro": "^3.1.0",
-		"typescript": "5.1.6"
+		"typescript": "5.1.6",
+		"usehooks-ts": "^2.9.1"
 	},
 	"devDependencies": {
 		"@types/ramda": "^0.29.3",

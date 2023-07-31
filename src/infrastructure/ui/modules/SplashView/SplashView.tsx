@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react'
 import { useRouter } from 'next/router'
 import { SxProps, Theme } from '@mui/material'
+import { useMediaQuery } from 'usehooks-ts'
 
 // base components
 import { Box, CircularProgress, Typography, Divider } from '../../components'
@@ -28,16 +29,33 @@ const boxStyle: BoxStyle = {
 export interface SplashViewProps {
     initialSplashValue?: number
     stepLoading?: number
+    splashImages: SplashImages
 }
 
-const SplashView: FC<SplashViewProps> = ({ initialSplashValue, stepLoading }): ReactElement => {
+export interface SplashImages {
+    desk: string
+    mobile: string
+}
+
+const SplashView: FC<SplashViewProps> = ({
+    initialSplashValue,
+    stepLoading,
+    splashImages,
+}): ReactElement => {
     const router = useRouter()
+    const matchMedia = useMediaQuery('(min-width: 1024px)')
     const [progress] = useCountdownTimer(initialSplashValue, stepLoading, () => {
         router.push('/home')
     })
 
     return (
-        <StyledSplashView>
+        <StyledSplashView
+            style={{
+                backgroundImage: !matchMedia
+                    ? `url(${splashImages.mobile})`
+                    : `url(${splashImages.desk})`,
+            }}
+        >
             <Box
                 display="flex"
                 justifyContent="center"
