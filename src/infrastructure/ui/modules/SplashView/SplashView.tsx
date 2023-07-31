@@ -38,7 +38,17 @@ const SplashView: FC<SplashViewProps> = ({ initialSplashValue, stepLoading }): R
 
     return (
         <StyledSplashView>
-            <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="flex-start"
+                sx={{
+                    marginTop: {
+                        xs: '100px',
+                        lg: 'calc(50vh - 100px)',
+                    },
+                }}
+            >
                 <Box sx={{ position: 'relative', display: 'inline-flex' }}>
                     <CircularProgress
                         variant="determinate"
