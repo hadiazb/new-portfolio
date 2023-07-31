@@ -16,7 +16,7 @@ const getLayout = (page: ReactElement): ReactElement => <MainLayout>{page}</Main
 
 SplashPage.getLayout = getLayout
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const deskSplash = './assets/images/splash-desk.png'
     const mobileSplash = './assets/images/splash-mobile.png'
 
