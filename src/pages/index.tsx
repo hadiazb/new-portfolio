@@ -12,11 +12,20 @@ const SplashPage = (props: SplashPageProps): ReactElement => {
 
 export default SplashPage
 
-const getLayout = (page: ReactElement): ReactElement => <MainLayout>{page}</MainLayout>
+const getLayout = (page: ReactElement<SplashPageProps>): ReactElement => (
+    <MainLayout>{page}</MainLayout>
+)
 
 SplashPage.getLayout = getLayout
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export interface Props {
+    splashImages: {
+        desk: string
+        mobile: string
+    }
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const deskSplash = './assets/images/splash-desk.png'
     const mobileSplash = './assets/images/splash-mobile.png'
 

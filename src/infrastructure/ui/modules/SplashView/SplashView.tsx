@@ -48,12 +48,14 @@ const SplashView: FC<SplashViewProps> = ({
         router.push('/home')
     })
 
+    // handlers
+    const handleSplashImgBySize = (): string =>
+        !matchMedia ? `url(${splashImages.mobile})` : `url(${splashImages.desk})`
+
     return (
         <StyledSplashView
             style={{
-                backgroundImage: !matchMedia
-                    ? `url(${splashImages.mobile})`
-                    : `url(${splashImages.desk})`,
+                backgroundImage: handleSplashImgBySize(),
             }}
         >
             <Box
@@ -73,7 +75,7 @@ const SplashView: FC<SplashViewProps> = ({
                         sx={{ color: 'white' }}
                         value={progress}
                         size={200}
-                        thickness={1}
+                        thickness={!matchMedia ? 1 : 3}
                     />
                     <Box sx={boxStyle}>
                         <Typography variant="h2" color="secondary">
