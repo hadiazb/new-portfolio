@@ -1,2 +1,4 @@
-export { default as HomeView } from './HomeView'
-export { default as SplashView } from './SplashView'
+export * from './AuthModule'
+export * from './AdminModule'
+export * from './HomeModule'
+export * from './SplashModule'

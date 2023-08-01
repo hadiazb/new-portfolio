@@ -2,7 +2,7 @@ import { FC, ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 
 // base components
-import { Box, MobileMenu, Typography } from '../../components'
+import { Box, MobileMenu, Typography } from '@/infrastructure/ui/components'
 
 // selectors
 import { menuMobileOptionSelector } from '@/domain/store/contentUseCase'

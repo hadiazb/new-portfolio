@@ -4,10 +4,10 @@ import { SxProps, Theme } from '@mui/material'
 import { useMediaQuery } from 'usehooks-ts'
 
 // base components
-import { Box, CircularProgress, Typography, Divider } from '../../components'
+import { Box, CircularProgress, Divider, Typography } from '@/infrastructure/ui/components'
 
 // hooks
-import { useCountdownTimer } from '../../hooks'
+import { useCountdownTimer } from '@/infrastructure/ui/hooks'
 
 // styles
 import { StyledSplashView } from './splashView-styles'
