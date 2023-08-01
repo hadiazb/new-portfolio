@@ -1,36 +1,19 @@
 import { FC, ReactElement } from 'react'
+import { useSelector } from 'react-redux'
 
 // base components
 import { Box, MobileMenu, Typography } from '../../components'
 
-const options = [
-    {
-        label: 'About Me',
-        fontSize: 11,
-        icon: 'Person2',
-    },
-    {
-        label: 'Projects',
-        fontSize: 11,
-        icon: 'Work',
-    },
-    {
-        label: 'Blog',
-        fontSize: 11,
-        icon: 'Notifications',
-    },
-    {
-        label: 'Tutorial',
-        fontSize: 11,
-        icon: 'Lightbulb',
-    },
-]
+// selectors
+import { menuMobileOptionSelector } from '@/domain/store/contentUseCase'
 
 export interface HomeViewProps {
     title: string
 }
 
 const HomeView: FC<HomeViewProps> = ({ title }): ReactElement => {
+    const options = useSelector(menuMobileOptionSelector)
+
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
