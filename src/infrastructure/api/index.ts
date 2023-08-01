@@ -1,9 +1,15 @@
 import axios, { AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios'
+import axiosRetry from 'axios-retry'
 
-export const api = axios.create({
+const api = axios.create({
     baseURL: 'https://hello-world',
     timeout: 1000,
     headers: { 'X-Custom-Header': 'foobar' },
+})
+
+axiosRetry(api, {
+    retryDelay: axiosRetry.exponentialDelay,
+    retries: 4,
 })
 
 const handleErr = (error: unknown): AxiosResponse | undefined => {

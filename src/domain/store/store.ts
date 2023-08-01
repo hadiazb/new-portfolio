@@ -7,6 +7,9 @@ import { rootReducers } from './rootReducers'
 // persist config
 import { persistConfig } from './rootPersistConfig'
 
+// middleware
+import { rootMiddleware } from './rootMiddleware'
+
 const persistedReducer = persistReducer(persistConfig, rootReducers)
 
 export const store = configureStore({
@@ -14,7 +17,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,
-        }).concat([]),
+        }).concat([rootMiddleware]),
 })
 
 export const persistor = persistStore(store)
