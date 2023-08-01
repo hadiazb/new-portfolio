@@ -33,6 +33,8 @@ export { default as Stack } from './Stack'
 export { default as Typography } from './Typography'
 export { default as Toolbar } from './Toolbar'
 export { default as Tooltip } from './Tooltip'
+export { default as Tabs } from './Tabs'
+export { default as Tab } from './Tab'
 
 export * from './Containers'
 export * from './Buttons'
