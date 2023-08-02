@@ -1,49 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 // interfaces
 import { Option } from '@/infrastructure/ui/components/ui/MobileMenu/MobileMenu'
 
 export interface HomeContentState {
     options: Option[]
+    loading: boolean
+    error: unknown
 }
 
 const initialState: HomeContentState = {
-    options: [
-        {
-            label: 'About Me',
-            fontSize: 11,
-            icon: 'Person2',
-        },
-        {
-            label: 'Projects',
-            fontSize: 11,
-            icon: 'Work',
-        },
-        {
-            label: 'Blog',
-            fontSize: 11,
-            icon: 'Notifications',
-        },
-        {
-            label: 'Tutorial',
-            fontSize: 11,
-            icon: 'Lightbulb',
-        },
-    ],
+    error: null,
+    loading: false,
+    options: [],
 }
 
 export const homeContentSlice = createSlice({
     name: 'homeContent',
     initialState,
     reducers: {
-        get: (state) => {
-            state.options = { ...state.options }
+        onError: (state) => {
+            state.loading = false
+            state.error = 'hay error'
+        },
+        onLoading: (state) => {
+            state.loading = true
+        },
+        onLoad: (state, action: PayloadAction<Option[]>) => {
+            state.options = action.payload
+            state.loading = false
         },
     },
 })
 
 // Actions Creators
-export const { get } = homeContentSlice.actions
+export const { onLoad, onLoading, onError } = homeContentSlice.actions
 
 // Reducers
 export default homeContentSlice.reducer

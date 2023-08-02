@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios'
 import axiosRetry from 'axios-retry'
 
 const api = axios.create({
-    baseURL: 'https://hello-world',
+    baseURL: '/api',
     timeout: 1000,
     headers: { 'X-Custom-Header': 'foobar' },
 })
@@ -18,26 +18,15 @@ const handleErr = (error: unknown): AxiosResponse | undefined => {
     }
 }
 
-const get = async <T>(
-    url: string,
-    config?: AxiosRequestConfig,
-): Promise<AxiosResponse<T> | undefined> => {
-    try {
-        return await api.get<T>(url, config)
-    } catch (error) {
-        handleErr(error)
-    }
+const get = async <T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+    return await api.get<T>(url, config)
 }
 
 const _delete = async <T>(
     url: string,
     config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T> | undefined> => {
-    try {
-        return await api.delete<T>(url, config)
-    } catch (error) {
-        handleErr(error)
-    }
+    return await api.delete<T>(url, config)
 }
 
 const put = async <T, D>(
@@ -45,11 +34,7 @@ const put = async <T, D>(
     data: D,
     config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T, D> | undefined> => {
-    try {
-        return await api.put<T>(url, data, config)
-    } catch (error) {
-        handleErr(error)
-    }
+    return await api.put<T>(url, data, config)
 }
 
 const post = async <T, D>(
@@ -57,11 +42,7 @@ const post = async <T, D>(
     data: D,
     config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T, D> | undefined> => {
-    try {
-        return await api.post<T>(url, data, config)
-    } catch (error) {
-        handleErr(error)
-    }
+    return await api.post<T>(url, data, config)
 }
 
 export const http = {
@@ -70,4 +51,5 @@ export const http = {
     delete: _delete,
     put,
     post,
+    handleErr,
 }

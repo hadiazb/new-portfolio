@@ -4,6 +4,6 @@ import { AxiosRequestConfig } from 'axios'
 import { http } from '../../api'
 
 export const contentRepository = {
-    getMobileMenuOptions: async (url: string, config?: AxiosRequestConfig) =>
-        await http.get(url, config),
+    getMobileMenuOptions: async <T>(config?: AxiosRequestConfig) =>
+        await http.get<T>('/content/home', config),
 }
