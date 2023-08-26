@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Theme } from '@mui/material'
 
 // base components
-import { Box, MobileMenu, Typography } from '@/infrastructure/ui/components'
+import { Box, Divider, IconButton, MobileMenu, Typography } from '@/infrastructure/ui/components'
 
 // selectors
 import { menuMobileOptionSelector } from '@/domain/store/contentUseCase'
@@ -17,11 +17,24 @@ import { AppDispatch } from '../../../../../../domain/store/store'
 // styles
 import { StyledHomeImage, StyledHomeView } from './homeView-styles'
 
+// icons
+import { muiIcons } from '@/infrastructure/ui/utils/icons'
+
 export interface HomeViewProps {
-    photo: string
+    images: {
+        photo: string
+        bgHead: string
+    }
+    profile: {
+        name: string
+        job: string
+        description: string
+        location: string
+    }
+    socialMedia: string[]
 }
 
-const HomeView: FC<HomeViewProps> = ({ photo }): ReactElement => {
+const HomeView: FC<HomeViewProps> = ({ images, profile, socialMedia }): ReactElement => {
     const dispatch: AppDispatch = useDispatch()
     const options = useSelector(menuMobileOptionSelector)
 
@@ -31,7 +44,8 @@ const HomeView: FC<HomeViewProps> = ({ photo }): ReactElement => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        borderRadius: '5px',
+        borderRadius: '8px',
+        overflow: 'hidden',
         boxShadow: `0px 0px 10px 1px ${theme.palette.primary.main}`,
     })
 
@@ -47,22 +61,21 @@ const HomeView: FC<HomeViewProps> = ({ photo }): ReactElement => {
                     sx={{
                         height: '340px',
                         width: '100%',
-                        backgroundImage:
-                            'url(https://images.unsplash.com/photo-1522770179533-24471fcdba45)',
+                        backgroundImage: `url(${images.bgHead})`,
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
                         position: 'relative',
                     }}
                 >
-                    <StyledHomeImage src={photo} alt="hello" />
+                    <StyledHomeImage src={images.photo} alt="hello" />
                 </Box>
                 <Box
                     sx={{
                         height: '320px',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center',
+                        justifyContent: 'flex-end',
                         alignItems: 'center',
                     }}
                 >
@@ -70,21 +83,29 @@ const HomeView: FC<HomeViewProps> = ({ photo }): ReactElement => {
                         variant="h2"
                         sx={{ fontWeight: 700, mb: '10px', fontFamily: 'Helvetica' }}
                     >
-                        Hugo Andrés Díaz Bernal
+                        {profile.name}
                     </Typography>
                     <Typography
                         variant="h3"
                         color="primary"
                         sx={{ mb: '5px', fontStyle: 'italic', fontWeight: 600 }}
                     >
-                        Software Developer
+                        {profile.job}
                     </Typography>
                     <Typography variant="h3" sx={{ mb: '5px' }}>
-                        JavaScript Enthusiastic
+                        {profile.description}
                     </Typography>
                     <Typography variant="h4" sx={{ mb: '5px' }}>
-                        Bogota Colombia
+                        {profile.location}
                     </Typography>
+                    <Divider sx={{ height: '5px' }} />
+                    <Box>
+                        {socialMedia.map((icon) => (
+                            <IconButton key={icon} color="primary">
+                                {muiIcons[icon]}
+                            </IconButton>
+                        ))}
+                    </Box>
                 </Box>
             </Box>
             <MobileMenu options={options} />

@@ -11,4 +11,7 @@ export const muiIcons: IIcons = {
     Lightbulb: <MUIIcons.Lightbulb />,
     Abc: <MUIIcons.Abc />,
     AbcOutlined: <MUIIcons.AbcOutlined />,
+    GitHub: <MUIIcons.GitHub />,
+    LinkedIn: <MUIIcons.LinkedIn />,
+    Twitter: <MUIIcons.Twitter />,
 }

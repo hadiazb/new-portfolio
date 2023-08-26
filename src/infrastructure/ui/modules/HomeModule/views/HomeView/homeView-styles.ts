@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro'
 
 export const StyledHomeView = styled.section`
-    ${tw`pt-5 min-h-screen`}
+    ${tw`pt-5 min-h-[120vh]`}
 `
 
 export const StyledHomeImage = styled.img`
