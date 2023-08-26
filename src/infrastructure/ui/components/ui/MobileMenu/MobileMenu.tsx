@@ -22,13 +22,13 @@ export interface Option {
 const MobileMenu: FC<MobileMenuProps> = ({ options }): ReactElement => {
     const [value, setValue] = useState(0)
 
-    const handleChange = (event: SyntheticEvent, newValue: number): void => {
+    const handleChange = (_e: SyntheticEvent, newValue: number): void => {
         setValue(newValue)
     }
 
     return (
         <StyledMenuMobile>
-            <Tabs value={value} onChange={handleChange} centered>
+            <Tabs value={value} onChange={handleChange} centered $indicatorPosition="top">
                 {options.map(({ label, icon, fontSize }) => (
                     <Tab key={label} icon={muiIcons[icon]} sx={{ fontSize }} label={label} />
                 ))}

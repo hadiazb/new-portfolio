@@ -14,6 +14,10 @@ export type CustomStylesProps<T = DefaultTheme> = GlobalStyleProps & {
 }
 
 export const GlobalStyle = createGlobalStyle<CustomStylesProps>`
+    body {
+        background-color: ${({ theme }) => theme.colors.light.dark};
+    }
+
     * {
       ${tw`font-montserrat`}
     }
