@@ -12,16 +12,24 @@ import { Theme, themeMUI, GlobalStyle } from '../../../styles'
 
 export type MainLayoutProps = {
     children: React.ReactNode
+    metaData?: {
+        title: string
+        description: string
+        keywords: string
+        icon: string
+    }
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, metaData }) => {
     const theme = Theme()
 
     return (
         <>
             <Head>
-                <title>Hugo</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>{metaData?.title}</title>
+                <meta name="description" content={metaData?.description} />
+                <meta name="keywords" content={metaData?.keywords} />
+                <link rel="icon" href={metaData?.icon ?? '/favicon.ico'} />
             </Head>
             <ThemeProvider theme={theme}>
                 <ThemeProviderMUI theme={themeMUI}>

@@ -18,8 +18,8 @@ const HomePage = (props: HomePageProps): ReactElement => {
 
 export default HomePage
 
-const getLayout = (page: ReactElement<HomePageProps>): ReactElement => (
-    <MainLayout>{page}</MainLayout>
+const getLayout = (page: ReactElement): ReactElement => (
+    <MainLayout metaData={page.props.children.props.metaData}>{page}</MainLayout>
 )
 
 HomePage.getLayout = getLayout
@@ -36,6 +36,12 @@ export interface Props {
         location: string
     }
     socialMedia: string[]
+    metaData?: {
+        title: string
+        description: string
+        keywords: string
+        icon: string
+    }
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
@@ -58,6 +64,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
             },
             profileData,
             socialMedia: ['GitHub', 'LinkedIn', 'Twitter'],
+            metaData: {
+                title: 'Portafolio de Hugo',
+                description: 'Pagina principal del portafolio de Hugo Andrés Díaz Bernal',
+                keywords: 'Developer, Next, React, Frontend, Backend, Nodejs, Azure',
+                icon: '/favicon.ico',
+            },
         },
     }
 }

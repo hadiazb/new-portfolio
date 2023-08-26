@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
 
     render(): JSX.Element {
         return (
-            <Html>
+            <Html lang="es">
                 <Head />
                 <body>
                     <Main />
