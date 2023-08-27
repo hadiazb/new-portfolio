@@ -54,8 +54,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
                 socialMedia: ['GitHub', 'LinkedIn', 'Twitter'],
             },
             metaData: {
-                title: 'Portafolio de Hugo',
-                description: 'Pagina principal del portafolio de Hugo Andrés Díaz Bernal',
+                title: 'Portafolio de Hugo Andrés Díaz Bernal',
+                description:
+                    'Pagina principal o Home del portafolio de Hugo Andrés Díaz Bernal, en el cual se trata de mostrar el trabajo más representativo de este desarrollador',
                 keywords: 'Developer, Next, React, Frontend, Backend, Nodejs, Azure',
                 icon: '/favicon.ico',
             },

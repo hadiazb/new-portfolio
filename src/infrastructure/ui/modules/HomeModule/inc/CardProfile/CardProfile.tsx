@@ -45,7 +45,7 @@ const CardProfile: FC<CardProfileProps> = ({ images, profile, socialMedia }): Re
                         position: 'relative',
                     }}
                 >
-                    <StyledHomeImage src={images.photo} alt="hello" />
+                    <StyledHomeImage src={images.photo} alt="profile photo" />
                 </Box>
                 <Box
                     sx={{
@@ -57,13 +57,18 @@ const CardProfile: FC<CardProfileProps> = ({ images, profile, socialMedia }): Re
                     }}
                 >
                     <Typography
-                        variant="h2"
-                        sx={{ fontWeight: 700, mb: '10px', fontFamily: 'Helvetica' }}
+                        variant="h1"
+                        sx={{
+                            fontWeight: 700,
+                            fontSize: '20px',
+                            mb: '10px',
+                            fontFamily: 'Helvetica',
+                        }}
                     >
                         {profile.name}
                     </Typography>
                     <Typography
-                        variant="h3"
+                        variant="h2"
                         color="primary"
                         sx={{ mb: '5px', fontStyle: 'italic', fontWeight: 600 }}
                     >

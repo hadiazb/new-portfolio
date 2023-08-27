@@ -37,7 +37,11 @@ export default class MyDocument extends Document {
     render(): JSX.Element {
         return (
             <Html lang="es">
-                <Head />
+                <Head>
+                    <meta name="author" content="Hugo Andrés Díaz Bernal" />
+                    <meta name="publisher" content="Portafolio de Hugo Andrés Díaz Bernal" />
+                    <link rel="canonical" href="https://hugoandresdiazbernal.com/" />
+                </Head>
                 <body>
                     <Main />
                     <div id="portal" />
