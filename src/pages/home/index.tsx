@@ -4,16 +4,13 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { MainLayout } from '@/infrastructure/ui/components'
 import { HomeView } from '@/infrastructure/ui/modules'
 
+// interfaces
+import { AboutMe } from '@/infrastructure/ui/modules/HomeModule/interfaces'
+
 export type HomePageProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const HomePage = (props: HomePageProps): ReactElement => {
-    return (
-        <HomeView
-            profile={props.profileData}
-            images={props.images}
-            socialMedia={props.socialMedia}
-        />
-    )
+    return <HomeView aboutMe={props.aboutMe} />
 }
 
 export default HomePage
@@ -25,17 +22,7 @@ const getLayout = (page: ReactElement): ReactElement => (
 HomePage.getLayout = getLayout
 
 export interface Props {
-    images: {
-        photo: string
-        bgHead: string
-    }
-    profileData: {
-        name: string
-        job: string
-        description: string
-        location: string
-    }
-    socialMedia: string[]
+    aboutMe: AboutMe
     metaData?: {
         title: string
         description: string
@@ -49,7 +36,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
         'https://firebasestorage.googleapis.com/v0/b/portafolio-a8d13.appspot.com/o/Potafolio%2FProfile%2FFotosHugo%2Fprofile.jpg?alt=media&token=7752a102-74bd-42d1-96d3-1445c426e499'
     const bgHead = 'https://images.unsplash.com/photo-1522770179533-24471fcdba45'
 
-    const profileData = {
+    const profile = {
         name: 'Hugo Andrés Díaz Bernal',
         job: 'Software Developer',
         description: 'JavaScript Enthusiastic',
@@ -58,12 +45,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
     return {
         props: {
-            images: {
-                photo,
-                bgHead,
+            aboutMe: {
+                images: {
+                    photo,
+                    bgHead,
+                },
+                profile,
+                socialMedia: ['GitHub', 'LinkedIn', 'Twitter'],
             },
-            profileData,
-            socialMedia: ['GitHub', 'LinkedIn', 'Twitter'],
             metaData: {
                 title: 'Portafolio de Hugo',
                 description: 'Pagina principal del portafolio de Hugo Andrés Díaz Bernal',

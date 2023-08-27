@@ -1,4 +1,4 @@
-import { FC, ReactElement, SyntheticEvent, useState } from 'react'
+import { FC, ReactElement, SyntheticEvent } from 'react'
 
 // styles
 import { StyledMenuMobile } from './menuMobile-styles'
@@ -11,26 +11,23 @@ import { muiIcons } from '@/infrastructure/ui/utils/icons'
 
 export interface MobileMenuProps {
     options: Option[]
+    value: number
+    onChangeValue: (_e: SyntheticEvent, newValue: number) => void
 }
 
 export interface Option {
     label: string
     fontSize: number
     icon: string
+    id: number
 }
 
-const MobileMenu: FC<MobileMenuProps> = ({ options }): ReactElement => {
-    const [value, setValue] = useState(0)
-
-    const handleChange = (_e: SyntheticEvent, newValue: number): void => {
-        setValue(newValue)
-    }
-
+const MobileMenu: FC<MobileMenuProps> = ({ options, value, onChangeValue }): ReactElement => {
     return (
         <StyledMenuMobile>
-            <Tabs value={value} onChange={handleChange} centered $indicatorPosition="top">
-                {options.map(({ label, icon, fontSize }) => (
-                    <Tab key={label} icon={muiIcons[icon]} sx={{ fontSize }} label={label} />
+            <Tabs value={value} onChange={onChangeValue} centered $indicatorPosition="top">
+                {options.map(({ label, icon, fontSize, id }) => (
+                    <Tab key={id} icon={muiIcons[icon]} sx={{ fontSize }} label={label} />
                 ))}
             </Tabs>
         </StyledMenuMobile>

@@ -5,6 +5,7 @@ type Option = {
     label: string
     fontSize: number
     icon: string
+    id: number
 }
 
 type Data =
@@ -49,21 +50,25 @@ const getMenuOptions = async (req: NextApiRequest, res: NextApiResponse<Data>): 
             label: 'About Me',
             fontSize: 11,
             icon: 'Person2',
+            id: 0,
         },
         {
             label: 'Projects',
             fontSize: 11,
             icon: 'Work',
+            id: 1,
         },
         {
             label: 'Blog',
             fontSize: 11,
             icon: 'Notifications',
+            id: 2,
         },
         {
             label: 'Tutorial',
             fontSize: 11,
             icon: 'Lightbulb',
+            id: 3,
         },
     ]
     return res.status(200).send(options)
