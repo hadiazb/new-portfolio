@@ -22,6 +22,12 @@ export interface Props {
     splashImages: {
         desk: string
         mobile: string
+    },
+    metaData?: {
+        title: string
+        description: string
+        keywords: string
+        icon?: string
     }
 }
 
@@ -35,6 +41,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
                 desk: deskSplash,
                 mobile: mobileSplash,
             },
+            metaData: {
+                title: 'Protafolio de Hugo Andres Diaz Bernal',
+                description: 'Desarrollador Javascript y TypeScript',
+                keywords: 'React, Angular, Node, NextJS, Redux'
+            }
         },
     }
 }

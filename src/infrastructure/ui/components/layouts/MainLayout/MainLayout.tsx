@@ -16,7 +16,7 @@ export type MainLayoutProps = {
         title: string
         description: string
         keywords: string
-        icon: string
+        icon?: string
     }
 }
 
