@@ -1,3 +1,4 @@
+import { encrypt } from '../encrypt'
 import { storage } from '../rootPersistConfig'
 
 export const homePersistConfig = {
@@ -6,4 +7,5 @@ export const homePersistConfig = {
     storage,
     blacklist: [''],
     version: 1.0,
+    transforms: process.env.NODE_ENV !== 'development' ? [encrypt] : undefined,
 }

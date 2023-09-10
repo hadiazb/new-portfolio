@@ -9,6 +9,7 @@
 		"Pagina",
 		"persistor",
 		"Portafolio",
+		"postbuild",
 		"reduxjs",
 		"stylelint",
 		"tailwindcss",

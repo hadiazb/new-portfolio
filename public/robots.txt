@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hugoandresdiazbernal.com
+
+# Sitemaps
+Sitemap: https://hugoandresdiazbernal.com/sitemap.xml

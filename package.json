@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"postbuild": "next-sitemap --config next-sitemap.config.js",
 		"start": "next start",
 		"lint": "next lint"
 	},
@@ -23,11 +24,13 @@
 		"eslint": "8.34.0",
 		"eslint-config-next": "13.1.6",
 		"next": "13.4.12",
+		"next-sitemap": "^4.2.3",
 		"ramda": "^0.29.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-redux": "^8.1.2",
 		"redux-persist": "^6.0.0",
+		"redux-persist-transform-encrypt": "^5.0.0",
 		"reselect": "^4.1.8",
 		"twin.macro": "^3.1.0",
 		"typescript": "5.1.6",
