@@ -12,8 +12,8 @@ const SplashPage = (props: SplashPageProps): ReactElement => {
 
 export default SplashPage
 
-const getLayout = (page: ReactElement<SplashPageProps>): ReactElement => (
-    <MainLayout>{page}</MainLayout>
+const getLayout = (page: ReactElement): ReactElement => (
+    <MainLayout metaData={page.props.children.props.metaData} >{page}</MainLayout>
 )
 
 SplashPage.getLayout = getLayout
