@@ -1,7 +1,8 @@
 import tw, { styled } from 'twin.macro'
 
 export const StyledCardProfile = styled.section`
-    ${tw`my-5`}
+    ${tw`my-5 w-full`}
+    ${tw`md:max-w-md`}
 `
 
 export const StyledHomeImage = styled.img`

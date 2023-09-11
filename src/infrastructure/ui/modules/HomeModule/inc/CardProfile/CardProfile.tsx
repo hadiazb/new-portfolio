@@ -25,6 +25,7 @@ const CardProfile: FC<CardProfileProps> = ({ images, profile, socialMedia }): Re
         <StyledCardProfile>
             <Box
                 sx={(theme) => ({
+                    height: { xs: '77vh', md: '90vh' },
                     pb: '10px',
                     display: 'flex',
                     flexDirection: 'column',
@@ -36,7 +37,7 @@ const CardProfile: FC<CardProfileProps> = ({ images, profile, socialMedia }): Re
             >
                 <Box
                     sx={{
-                        height: '340px',
+                        height: '50%',
                         width: '100%',
                         backgroundImage: `url(${images.bgHead})`,
                         backgroundPosition: 'center',

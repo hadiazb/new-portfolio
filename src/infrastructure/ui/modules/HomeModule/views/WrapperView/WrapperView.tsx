@@ -33,9 +33,9 @@ const WrapperView: FC<WrapperViewProps> = ({ options, aboutMe }): ReactElement =
 
     return (
         <>
-            {options.map((option) => (
+            {options.filter((opt)=> opt.id === value).map((option) => (
                 <StyledWrapperView key={option.id}>
-                    {option.id === value && views[value]}
+                    {views[value]}
                 </StyledWrapperView>
             ))}
         </>
